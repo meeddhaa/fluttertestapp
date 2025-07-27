@@ -84,48 +84,55 @@ class _MyHomePageState extends State<MyHomePage> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+        leading: const Icon(Icons.home),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.settings),
+            onPressed: () {
+              //Actions for setting button
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.info),
+            onPressed: () {
+              //Actions for info button
+            },
+          ),
+        ],
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Container(
-          height: 80,
-          width: 80,
-          decoration: BoxDecoration(color: Colors.blue),
-          child: Center(
+          height: 150,
+          width: 150,
+          padding: const EdgeInsets.all(20),
+          margin: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            color: Colors.blue,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: const Center(
             child: Text(
-              'flutter',
-
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                decoration: TextDecoration.underline,
-                overflow: TextOverflow.ellipsis,
-              ),
+              'Hello,flutter!',
+              style: TextStyle(color: Colors.white, fontSize: 20),
             ),
           ),
-
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      bottomNavigationBar: Container(
+        padding: const EdgeInsets.only(left: 30, right: 30),
+        margin: const EdgeInsets.only(bottom: 20, left: 20, right: 20),
+        height: 40,
+        width: 100,
+        decoration: BoxDecoration(color: Colors.blue),
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {},
+        label: Text('Add New'),
+        icon: const Icon(Icons.add),
+        backgroundColor: Colors.green,
+      ),
     );
   }
 }
